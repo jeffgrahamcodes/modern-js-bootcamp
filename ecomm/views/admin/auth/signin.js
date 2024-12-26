@@ -1,0 +1,11 @@
+module.exports = () => {
+  return `
+    <div>
+      <form method="POST" action="">
+        <input name="email" type="text" placeholder="email">
+        <input name="password" type="text" placeholder="password">
+        <button>Sign In</button>
+      </form>
+    </div>
+  `;
+};
