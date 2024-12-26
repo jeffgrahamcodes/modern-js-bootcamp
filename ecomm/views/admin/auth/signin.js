@@ -1,11 +1,15 @@
+const layout = require('../layout');
+
 module.exports = () => {
-  return `
-    <div>
-      <form method="POST" action="">
-        <input name="email" type="text" placeholder="email">
-        <input name="password" type="text" placeholder="password">
-        <button>Sign In</button>
-      </form>
-    </div>
-  `;
+  return layout({
+    content: `
+      <div>
+        <form method="POST" action="">
+          <input name="email" type="text" placeholder="email">
+          <input name="password" type="text" placeholder="password">
+          <button>Sign In</button>
+        </form>
+      </div>
+    `,
+  });
 };
