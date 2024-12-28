@@ -17,7 +17,10 @@ router.post(
   [requireTitle, requirePrice],
   (req, res) => {
     const errors = validationResult(req);
-    console.log(errors);
+
+    req.on('data', (data) => {
+      console.log(data.toString());
+    });
 
     // if (!errors.isEmpty()) {
     //   return res.send(newProductsTemplate({ errors }));

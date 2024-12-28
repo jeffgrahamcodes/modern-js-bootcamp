@@ -60,10 +60,10 @@ module.exports = {
   requireTitle: check('title')
     .trim()
     .isLength({ min: 5, max: 40 })
-    .withMessage('Must provide a valid title'),
+    .withMessage('Must be bewteen 5 & 40 characters'),
   requirePrice: check('price')
     .trim()
     .toFloat()
     .isFloat({ min: 1 })
-    .withMessage('Must provide a valid price'),
+    .withMessage('Must be a number greater than 1'),
 };
