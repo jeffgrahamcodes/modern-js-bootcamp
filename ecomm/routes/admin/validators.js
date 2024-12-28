@@ -57,4 +57,13 @@ module.exports = {
         throw new Error('Invalid email/password');
       }
     }),
+  requireTitle: check('title')
+    .trim()
+    .isLength({ min: 5, max: 40 })
+    .withMessage('Must provide a valid title'),
+  requirePrice: check('price')
+    .trim()
+    .toFloat()
+    .isFloat({ min: 1 })
+    .withMessage('Must provide a valid price'),
 };
