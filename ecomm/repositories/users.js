@@ -30,13 +30,6 @@ class UsersRepository extends Repository {
 
     return hashed === hashedSuppliedBuff.toString('hex');
   }
-
-  async writeAll(records) {
-    await fs.promises.writeFile(
-      this.filename,
-      JSON.stringify(records, null, 2)
-    );
-  }
 }
 
 module.exports = new UsersRepository('users.json');

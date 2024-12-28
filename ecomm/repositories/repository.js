@@ -79,4 +79,11 @@ module.exports = class Repository {
       }
     }
   }
+
+  async writeAll(records) {
+    await fs.promises.writeFile(
+      this.filename,
+      JSON.stringify(records, null, 2)
+    );
+  }
 };
