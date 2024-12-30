@@ -1,11 +1,13 @@
 const express = require('express');
 const { validationResult } = require('express-validator');
+const multer = require('multer');
 
 const productsRepo = require('../../repositories/products');
 const newProductsTemplate = require('../../views/admin/products/new');
 const { requireTitle, requirePrice } = require('./validators');
 
 const router = express.Router();
+const upload = multer({ storage: multer.memoryStorage() });
 
 router.get('/admin/products', (req, res) => {});
 router.get('/admin/products/new', (req, res) => {
@@ -15,12 +17,11 @@ router.get('/admin/products/new', (req, res) => {
 router.post(
   '/admin/products/new',
   [requireTitle, requirePrice],
+  upload.single('image'),
   (req, res) => {
     const errors = validationResult(req);
 
-    req.on('data', (data) => {
-      console.log(data.toString());
-    });
+    console.log(req.file);
 
     // if (!errors.isEmpty()) {
     //   return res.send(newProductsTemplate({ errors }));
